@@ -7,6 +7,8 @@ if [ "$RES" = "" ]; then
 fi
 echo "Initializing with resolution $RES"
 
-vncserver :1 -geometry 1280x720 -depth 24 && tail -F /root/.vnc/*.log
+vncserver :1 -geometry $RES -depth 24 && tail -F /root/.vnc/*.log
 sleep 1
-while [ `pgrep Xtightvnc|wc -l` -ne 0 ]; do sleep 1; done
+while [ `pgrep Xtightvnc|wc -l` -ne 0 ]; do
+  sleep 1
+done
